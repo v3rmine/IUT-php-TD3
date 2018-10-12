@@ -43,3 +43,5 @@ define('PATH_SCRIPTS', PATH_ASSETS.'scripts/');
 //define('LOG_BDD','logbdd.txt');
 define('PATH_LOGO', PATH_IMAGES.'logo.png');
 define('PATH_MENU', PATH_VIEWS.'menu.php');
+
+define('TITRE_PAGE_ACCUEIL_TOUS', "Accueil");

@@ -20,6 +20,42 @@
 <!--  Début de la page -->
 <h1><?= TITRE_PAGE_ACCUEIL_TOUS ?></h1>
 
+<form method="get" action="" class="form-group">
+    <label for="opt">Quelles photos souhaitez-vous afficher ?</label>
+    <select name="catId" id="opt">
+        <optgroup label="Tous">
+            <option value="null" >Toutes les photos</option>
+        </optgroup>
+        <optgroup label="Filtré">
+            <?php
+                foreach ($cats as $cat) {
+                    $str = '<option value="'. $cat['catId'] ;
+                    if($_SESSION['catId'] == $cat['catId']) {
+                        $str = $str . ' " selected > ';
+                    }
+                    else {
+                        $str = $str . '" > ';
+                    }
+                    $str = $str . $cat['nomCat']  .' </option> ';
+                    echo $str;
+                }
+            ?>
+        </optgroup>
+    </select>
+
+    <?=
+    '<button type="submit">Envoyer</button>' ?>
+</form>
+
+
+<div>
+	<?php foreach ($photos as $kp => $vp) {
+		echo '<a href="?page=photo&id='.$vp['photoId'].'">';
+		echo '<img src="'.PATH_IMAGES.$vp['nomFich'].'" alt="'.$vp['description'].'" />';
+		echo '</a>';
+	} ?>
+</div>
+
 
 <!--  Fin de la page -->
 
